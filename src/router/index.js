@@ -1,6 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import AboutView from '../views/AboutView.vue'
+import AdminView from '../views/AdminView.vue'
+import AboutView from '../views/AdminView.vue'
+import ProductView from '../views/ProductView.vue'
+import CheckoutView from '../views/CheckoutView.vue'
+import LoginView from '../views/LoginView.vue'
+import RegisterView from '../views/Register.vue'
+import ContactView from '../views/Contact.vue'
+import SingleProductView from '../views/SingleProductView.vue'
 
 const routes = [
   {
@@ -14,20 +21,40 @@ const routes = [
     component: AboutView
   },
   {
-    path: '/about',
-    name: 'about',
-    component: AboutView
+    path: '/admin',
+    name: 'admin',
+    component: AdminView
   },
   {
-    path: '/about',
-    name: 'about',
-    component: AboutView
+    path: '/products',
+    name: 'products',
+    component: ProductView
   },
   {
-    path: '/about',
-    name: 'about',
-    component: AboutView
+    path: '/checkout',
+    name: 'checkout',
+    component: CheckoutView
   },
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginView
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: RegisterView
+  },
+  {
+    path: '/Contact',
+    name: 'Contact',
+    component: ContactView
+  },
+  {
+    path: '/singleprod',
+    name: 'singleprod',
+    component: SingleProductView
+  }
 ]
 
 const router = createRouter({
