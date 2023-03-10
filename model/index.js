@@ -1,15 +1,15 @@
-let db = require('../config');
+let db = require('../config/index.js');
 
 let {hash, compare, hashSync} = require('bcrypt');
 
-let {createToken} = require('../middleware/AuthenticatedUser');
+let {createJWT} = require('../middleware/AuthenticatedUser');
 
 class User{
     login(req, res) {
         const {emailAdd, userPass} = req.body;
         const strQry =
         `
-        SELECT userID, firstName, lastName, gender, cellphoneNumber, emailAdd, userPass, userRole, userProfile, joinDate
+        SELECT *
         FROM Users
         WHERE emailAdd = ${emailAdd};
         `;
@@ -22,7 +22,7 @@ class User{
                 (cErr, cResult)=>{
                     if(cErr) throw cErr;
 
-                    const jwToken = createToken({
+                    const jwToken = createJWT({
                         emailAdd, userPass
                     });
 
@@ -48,7 +48,7 @@ class User{
     fetchUser(req, res){
         const strQry =
         `
-        SELECT userID, firstName, lastName, gender, cellphoneNumber, emailAdd, userPass, userRole, userProfile, joinDate
+        SELECT *
         FROM Users;
         `
         db.query(strQry, (err, data)=>{
@@ -59,7 +59,7 @@ class User{
     fetchUser(req, res){
         const strQry =
         `
-        SELECT userID, firstName, lastName, gender, cellphoneNumber, emailAdd, userPass, userRole, userProfile, joinDate
+        SELECT *
         FROM Users
         WHERE UserID = ?;
         `
@@ -83,7 +83,7 @@ class User{
             if(err) {
                 res.status(401).json({err});
             }else{
-                const jwToken = createToken(user);
+                const jwToken = createJWT(user);
                 res.cookie("LegitUser", jwToken, {
                     maxAge: 3600000,
                     httpOnly: true
@@ -127,7 +127,7 @@ class Product {
     fetchProducts(req, res){
         const strQry = 
         `
-        SELECT id, prodName, prodDescription, category, price, prodQuantity, imgURL
+        SELECT *
         FROM Products;
         `;
         db.query(strQry, (err, results)=>{
@@ -138,7 +138,7 @@ class Product {
     fetchProduct(req, res) {
         const strQry = 
         `
-        SELECT id, prodName, prodDescription, category, price, prodQuantity, imgURL
+        SELECT *
         FROM Products
         WHERE id = ?;
         `;
