@@ -1,7 +1,6 @@
-const mysql = require('mysql2');
 require('dotenv').config();
-
-let sql = mysql.createPool({
+let {createPool} = require('mysql');
+let connection = createPool({
     host: process.env.Host,
     database: process.env.dbName,
     user: process.env.dbUser,
@@ -10,4 +9,4 @@ let sql = mysql.createPool({
     multipleStatements: true
 });
 
-module.exports = sql;
+module.exports = connection;
