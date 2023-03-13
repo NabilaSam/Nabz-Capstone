@@ -5,8 +5,8 @@ import AboutView from '../views/AdminView.vue'
 import ProductView from '../views/ProductView.vue'
 import CheckoutView from '../views/CheckoutView.vue'
 import LoginView from '../views/LoginView.vue'
-import RegisterView from '../views/Register.vue'
-import ContactView from '../views/Contact.vue'
+import RegisterView from '../views/RegisterView.vue'
+import ContactView from '../views/ContactView.vue'
 import SingleProductView from '../views/SingleProductView.vue'
 
 const routes = [

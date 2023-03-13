@@ -1,7 +1,13 @@
 <template>
   <div>
     <NavBar/>
-    <router-view/>
+    <main class="leftdoor maincontain rightdoor">
+      <div class="dacontent">
+        <router-view/>
+      </div>
+      
+    </main>
+    
     <Footer/>
   </div>
   
@@ -9,7 +15,7 @@
 
 <script>
 import NavBar from './components/NavBar';
-import Footer from './components/Footer.vue';
+import Footer from './components/FooterComp.vue';
 
 export default{
   name: "App",
@@ -31,6 +37,26 @@ export default{
   color: #660708;
   background-color: black;
   min-height: 100vh;
+}
+
+/* inner content */
+
+.maincontain{
+  width: 70%;
+  justify-content: center;
+  margin: auto;
+}
+
+/* left door animation */
+.leftdoor{
+  justify-content: left;
+  width: 15%;
+}
+
+/* right door animation*/
+.rightdoor{
+  justify-content: right;
+  width: 15%;
 }
 
 nav {
