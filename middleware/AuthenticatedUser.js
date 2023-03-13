@@ -1,7 +1,7 @@
 require('dotenv').config();
-const jwt = require('jsonwebtoken');
+const {sign, verify} = require('jsonwebtoken');
 
-function createJWT(user){
+function createToken(user){
     return jwt.sign({
         emailAdd: user.emailAdd,
         userPass: user.userPass
@@ -12,14 +12,14 @@ function createJWT(user){
     });
 };
 
-function verifyJWT(req, res,next){
+function verifyToken(req, res,next){
     try{
-        const token = req.cookies["LegitimateUser"] !== null?
+        const passToken = req.cookies["LegitimateUser"] !== null?
         req.cookies["LegitimateUser"]: "Please Register Yourself!";
-        const validation = null;
+        const isValid = null;
         if(token !== "Please Register Yourself!"){
-            validation = jwt.verify(token, process.env.SECRET_KEY);
-            if(validation){
+            isValid = verify(token, process.env.SECRET_KEY);
+            if(isValid){
                 req.authenticated = true;
                 next();
             } else{
@@ -33,4 +33,4 @@ function verifyJWT(req, res,next){
     }
 };
 
-module.exports = {createJWT, verifyJWT};
+module.exports = {createToken, verifyToken};

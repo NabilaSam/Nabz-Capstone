@@ -41,7 +41,7 @@ route.delete('/user/:id', (req, res)=>{
 // Products
 
 route.get('/products', (req, res)=>{
-    product.fetchProduct(req, res);
+    product.fetchProducts(req, res);
 });
 
 route.get('/product/:id', (req, res)=>{
