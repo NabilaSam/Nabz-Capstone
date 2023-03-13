@@ -45,7 +45,7 @@ class User{
             }
         })
     }
-    fetchUser(req, res){
+    fetchUsers(req, res){
         const strQry =
         `
         SELECT *
@@ -62,7 +62,7 @@ class User{
         SELECT *
         FROM Users
         WHERE UserID = ?;
-        `
+        `;
         db.query(strQry,[req.params.id], (err, data)=>{
             if(err) throw err;
             else res.status(200).json({result: data})
