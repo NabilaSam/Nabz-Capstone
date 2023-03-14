@@ -1,12 +1,11 @@
 <template>
-  <div>
+  <div class="content-container">
     <NavBar/>
     <main>
       <div class="doors">
         <img src="https://i.postimg.cc/mDWhdFFJ/istockphoto-1301187149-612x612.jpg" alt="leftdoor" class="leftdoor">
 
         <img src="https://i.postimg.cc/mDWhdFFJ/istockphoto-1301187149-612x612.jpg" alt="rightdoor" class="rightdoor">
-      
       </div>
       <div class="dacontent">
         <router-view/>
@@ -50,9 +49,11 @@ export default{
 }
 
 /* inner content */
-
 .doors{
+  overflow-x: hidden;
   position: absolute;
+  display: flex;
+  width: 100%;
   
 }
 
@@ -62,7 +63,7 @@ export default{
   height: 100vh;
   width: 100%;
   float: left;
-  animation: slidein 2s ease 0s 1 forwards;
+  animation: slideLeft 2s ease 0s 1 forwards;
 }
 
 /* right door animation*/
@@ -71,16 +72,25 @@ export default{
   height: 100vh;
   width: 100%;
   float: right;
-  animation: slidein 2s ease 0s 1 forwards;
+  animation: slideRight 2s ease 0s 1 forwards;
 }
 
 /* Slide in animation */
-@keyframes slidein{
+@keyframes slideLeft{
   from{
-    transform: translateX(600px);
+    transform: translateX(0px);
   }
   to{
-    transform:translate(0px)
+    transform:translate(-600px)
+  }
+}
+
+@keyframes slideRight{
+  from{
+    transform: translateX(0px);
+  }
+  to{
+    transform: translateX(600px);
   }
 }
 
