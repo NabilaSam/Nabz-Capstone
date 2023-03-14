@@ -337,7 +337,7 @@ class Product {
         });
     };
     fetchProduct(req, res) {
-        const fetchProductQuery = `SELECT prodId, prodName, prodDescription, category, price, imgURL FROM Products WHERE id = ?;`;
+        const fetchProductQuery = `SELECT prodId, prodName, prodDescription, category, price, imgURL FROM Products WHERE prodId = ?;`;
 
         db.query(fetchProductQuery, [req.params.id], (err, results) => {
             if (err) throw err, console.log(err);

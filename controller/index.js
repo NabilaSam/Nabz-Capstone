@@ -13,7 +13,7 @@ const user = new User();
 const product = new Product();
 
 route.get("^/$|Nabz-Capstone", (req, res)=>{
-    res.status(200).sendFile(path.join(_dirname, '../view/index.html'));
+    res.status(200).sendFile(path.join(__dirname, '../view/index.html'));
 })
 
 // Users
