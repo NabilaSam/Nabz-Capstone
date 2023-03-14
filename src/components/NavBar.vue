@@ -34,7 +34,7 @@
      <!-- Logo -->
      
     <router-link to="/" class="navbar-brand" style="margin: auto;" >
-        <img alt="logo" src="https://i.postimg.cc/xC5N8bQw/In-Shot-20230228-135454580-fococlipping-standard.png" style="max-width: 8rem; margin:auto; display: flex; align-content: center;">
+        <img alt="logo" src="" style="max-width: 8rem; margin:auto; display: flex; align-content: center;">
     </router-link>
   
   

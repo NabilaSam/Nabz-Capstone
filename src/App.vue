@@ -1,7 +1,13 @@
 <template>
   <div>
     <NavBar/>
-    <main class="leftdoor maincontain rightdoor">
+    <main class="maincontain rightdoor">
+      <div class="row">
+        <img src="https://i.postimg.cc/mDWhdFFJ/istockphoto-1301187149-612x612.jpg" alt="leftdoor" class="leftdoor col">
+
+        <img src="https://i.postimg.cc/mDWhdFFJ/istockphoto-1301187149-612x612.jpg" alt="rightdoor" class="rightdoor col">
+      
+      </div>
       <div class="dacontent">
         <router-view/>
       </div>
@@ -37,26 +43,47 @@ export default{
   color: #660708;
   background-color: black;
   min-height: 100vh;
+  color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 /* inner content */
 
 .maincontain{
-  width: 70%;
+  width: 100%;
   justify-content: center;
   margin: auto;
+  margin-top: 10%;
 }
 
 /* left door animation */
 .leftdoor{
   justify-content: left;
-  width: 15%;
+  height: 100vh;
+  width: 100%;
+  float: left;
+  animation: slidein 2s ease 0s 1 forwards;
 }
 
 /* right door animation*/
 .rightdoor{
   justify-content: right;
-  width: 15%;
+  height: 100vh;
+  width: 100%;
+  float: right;
+  animation: slidein 2s ease 0s 1 forwards;
+}
+
+/* Slide in animation */
+@keyframes slidein{
+  from{
+    transform: translateX(600px);
+  }
+  to{
+    transform:translate(0px)
+  }
 }
 
 nav {
