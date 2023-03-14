@@ -81,7 +81,7 @@ export default{
     transform: translateX(0px);
   }
   to{
-    transform:translate(-600px)
+    transform:translate(-40rem)
   }
 }
 
@@ -90,7 +90,7 @@ export default{
     transform: translateX(0px);
   }
   to{
-    transform: translateX(600px);
+    transform: translateX(40rem);
   }
 }
 
