@@ -1,11 +1,11 @@
 <template>
   <div>
     <NavBar/>
-    <main class="maincontain rightdoor">
-      <div class="row">
-        <img src="https://i.postimg.cc/mDWhdFFJ/istockphoto-1301187149-612x612.jpg" alt="leftdoor" class="leftdoor col">
+    <main>
+      <div class="doors">
+        <img src="https://i.postimg.cc/mDWhdFFJ/istockphoto-1301187149-612x612.jpg" alt="leftdoor" class="leftdoor">
 
-        <img src="https://i.postimg.cc/mDWhdFFJ/istockphoto-1301187149-612x612.jpg" alt="rightdoor" class="rightdoor col">
+        <img src="https://i.postimg.cc/mDWhdFFJ/istockphoto-1301187149-612x612.jpg" alt="rightdoor" class="rightdoor">
       
       </div>
       <div class="dacontent">
@@ -51,11 +51,9 @@ export default{
 
 /* inner content */
 
-.maincontain{
-  width: 100%;
-  justify-content: center;
-  margin: auto;
-  margin-top: 10%;
+.doors{
+  position: absolute;
+  
 }
 
 /* left door animation */
