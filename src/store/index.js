@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
 import axios from 'axios';
-const renderURL = "https://nintai-no-ei.onrender.com";
+const renderURL = "https://nintai-no-ei.onrender.com/";
 
 export default createStore({
   state: {
@@ -15,6 +15,9 @@ export default createStore({
     editproduct:null
   },
   getters: {
+    showSpinner(state){
+      return state.showSpinner
+    }
   },
   mutations: {
     setUsers(state, values){
@@ -32,37 +35,43 @@ export default createStore({
     setProduct(state, value) {
       state.product = value;
     },
-    setMessage(state, values){
-      state.message = values
-    },
     setSpinner(state, value){
       state.showSpinner = value
     }
   },
   actions: {
+    // Users
     async fetchUsers(context) {
       let res = await axios.get(`${renderURL}users`);
       let {results,err} = await res.data;
       if(results) {
-        context.commit('setUsers',results);
+        context.commit('DisplayUsers',results);
       }else {
-        context.commit('setMessage',err);
+        context.commit('Could not retrieve user',err);
       }
     },
-
-    async fetchProduct(context) {
-      const res =
-      await axios.get(`${renderURL}products`);
-      const {results, err} = await res.data;
-      if(results) {
-          context.commit('setProducts', results);
-          context.commit('setSpinner', false);
-      }
-      if(err) {
-          context.commit('setMessage', err)
+    
+    async updateUser(context, ){
+      let res = await axios.put(`${renderURL}users/:id`, );
+      let {msg, err} = await res.data;
+      if(msg) {
+        context.commit('fetchUsers')
+      }else {
+        context.commit('setMessage', err);
       }
     },
-    async login(context, ){
+    async deleteUser(context, id) {
+      let res = await axios.put(`${renderURL}users/:id`, );
+      console.log(`Delete: ${id}`);
+      let {msg, err} = await res.data;
+      if(msg) {
+        context.commit('fetchUsers');
+      }else {
+        context.commit('setMessage', err);
+      }
+    },
+    
+    async login(context){
       const res = await axios.patch(`${renderURL}login`, );
       const {result, err} = await res.data;
       if(result) {
@@ -71,7 +80,7 @@ export default createStore({
         context.commit('setMessage', err);
       }
     },
-    async register(context, ) {
+    async register(context) {
       let res = await axios.post(`${renderURL}register`, );
       let {msg,err} = await res.data;
       if(msg) {
@@ -80,69 +89,63 @@ export default createStore({
         context.commit('setMessage', err);
       }
     },
-    
-    async updateUser(context, ){
-      let res = await axios.put(`${renderURL}users/${id}`, );
-      let {msg, err} = await res.data;
-      if(msg) {
-        context.dispatch('fetchUsers')
+
+
+    // Products
+    async fetchProducts(context, payload) {
+      const res =
+      await axios.get(`${renderURL}products`, payload);
+      const {results} = await res.data;
+      if(results) {
+          context.commit('setProducts', results);
+          context.commit('setSpinner', false);
       }else {
-        context.commit('setMessage', err);
+          context.commit('setSpinner', true)
       }
     },
-    async deleteUser(context, id) {
-      console.log(`Delete: ${id}`);
-      let {msg, err} = await res.data;
-      if(msg) {
-        context.dispatch('fetchUsers');
+
+    async fetchProduct(context) {
+      const res =
+      await axios.get(`${renderURL}product/:id`);
+      const {results} = await res.data;
+      if(results) {
+          context.commit('setProducts', results);
+          context.commit('setSpinner', false);
       }else {
-        context.commit('setMessage', err);
+          context.commit('setSpinner', true)
       }
     },
-    async addProduct(context, ) {
-      let res = axios.post(`${renderURL}product`, );
-      let {msg,err} = await res.data;
-      if(msg) {
-        context.commit('setMessage',msg)
-      }
-      if(err) {
+      async addProduct(context) {
+      let res = axios.post(`${renderURL}product/:id`, );
+      let {result,err} = await res.data;
+      if(result) {
+        context.commit('setMessage',result)
+      }else {
         context.commit('setMessage', err)
       }
     },
-    
-    async fetchProduct(context, id) {
-      const res =
-      await axios.get(`${renderURL}product/${id}`);
+
+    async deleteProduct(context) {
+      const res = await axios.delete(`${renderURL}product/:id`);
       const {results, err} = await res.data;
       if(results) {
-          context.commit('setProduct', results);
-          context.commit('setSpinner', false);
-      }
-      if(err) {
-          context.commit('setMessage', err)
+          context.commit('setProducts', results);
+      } else {
+          context.commit('setMessage', err);
       }
     },
-    async updateProduct(context, ) {
+    
+    async updateProduct(context) {
       const res =
-      await axios.put(`${renderURL}product/${id}`, );
-      const {msg, err} = await res.data;
-      if(msg) {
-          context.dispatch('fetchProducts');
-      }
-      if(err) {
-          context.commit('setMessage', msg || err)
-      }
-    },
-    async deleteProduct(context, id) {
-      const res = await axios.delete(`${renderURL}product/${id}`);
-      const {err, msg} = await res.data;
-      if(msg) {
-          context.dispatch('fetchProducts');
-      }
-      if(err) {
+      await axios.put(`${renderURL}product/:id`);
+      const {results, err} = await res.data;
+      if(results) {
+          context.commit('setUpdate', results);
+      } else {
           context.commit('setMessage', err);
       }
     }
+
   },
   modules: {
   }

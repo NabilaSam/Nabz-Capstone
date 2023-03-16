@@ -1,7 +1,7 @@
 <template>
   <div class="content-container">
     <NavBar/>
-    <main>
+    <main class="min-vh-100">
       <div class="doors">
         <img src="https://i.postimg.cc/mDWhdFFJ/istockphoto-1301187149-612x612.jpg" alt="leftdoor" class="leftdoor">
 
@@ -40,7 +40,7 @@ export default{
   text-shadow: 0.2px 0.2px rgb(255, 0, 0);
   text-align: center;
   color: #660708;
-  background-color: black;
+  background-color: beige;
   min-height: 100vh;
   color: #f2f2f2;
   margin: 0;
@@ -51,7 +51,7 @@ export default{
 /* inner content */
 .doors{
   overflow-x: hidden;
-  position: absolute;
+  position: fixed;
   display: flex;
   width: 100%;
   
@@ -105,5 +105,13 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+@media screen and (max-width: 1100px) 
+{
+.doors { 
+  display: none;
+} 
+ 
 }
 </style>

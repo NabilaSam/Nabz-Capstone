@@ -10,7 +10,7 @@ export default {
 </script>
 <style scoped>
     .footer{
-    background-color: #030701;
+    background-color: rgb(161, 73, 18);
     color: aliceblue;
     }
 
