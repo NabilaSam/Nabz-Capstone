@@ -42,7 +42,7 @@ export default{
   color: #660708;
   background-color: beige;
   min-height: 100vh;
-  color: #f2f2f2;
+  color: #000000;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -104,7 +104,7 @@ nav a {
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #0a9019;
 }
 
 @media screen and (max-width: 1100px) 

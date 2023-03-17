@@ -13,12 +13,12 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <input type="text" name="prodName" id="prodName" required placeholder="Product Name" v-model="payloadTemplate.prodName" class="form-control">
-        <input type="text" name="prodDescription" id="prodDescription" required placeholder="Product Description" v-model="payloadTemplate.prodDescription" class="form-control">
-        <input type="number" name="price" id="price" required placeholder="Product Price" v-model="payloadTemplate.price" class="form-control">
-        <input type="number" name="quantity" id="quantity" required placeholder="Product Quantity" v-model="payloadTemplate.prodQuantity" class="form-control">
-        <input type="text" name="imgURL" id="imgURL" required placeholder="Product Image URL" v-model="payloadTemplate.imgURL" class="form-control">
-      </div>
+         <input type="text" name="imgURL" id="imgURL" required placeholder="Product Image URL" v-model="payloadTemplate.imgURL" class="form-control">
+         <input type="text" name="prodName" id="prodName" required placeholder="Product Name" v-model="payloadTemplate.prodName" class="form-control">
+         <input type="text" name="prodDescription" id="prodDescription" required placeholder="Product Description" v-model="payloadTemplate.prodDescription" class="form-control">
+         <input type="text" name="category" id="category" required placeholder="Category" v-model="payloadTemplate.category" class="form-control">
+         <input type="number" name="price" id="price" required placeholder="Price" v-model="payloadTemplate.price" class="form-control">
+        </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" v-on:click="addProduct()">Save changes</button>
@@ -38,10 +38,9 @@ export default{
         let payloadTemplate = {
             prodName: '',
             prodDescription: '',
+            category: '',
             price: '',
-            prodQuantity: '',
-            imgURL: '',
-            userID: '2',
+            imgURL: ''
         }
         
     const addProduct = async () => {
