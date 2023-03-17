@@ -14,14 +14,19 @@
       </div>
       <div class="modal-body">
          <input type="text" name="imgURL" id="imgURL" required placeholder="Product Image URL" v-model="payloadTemplate.imgURL" class="form-control">
+          {{ product.imgURL }}
          <input type="text" name="prodName" id="prodName" required placeholder="Product Name" v-model="payloadTemplate.prodName" class="form-control">
+          {{ product.prodName }}
          <input type="text" name="prodDescription" id="prodDescription" required placeholder="Product Description" v-model="payloadTemplate.prodDescription" class="form-control">
+            {{ product.prodDescription }}
          <input type="text" name="category" id="category" required placeholder="Category" v-model="payloadTemplate.category" class="form-control">
+            {{ product.category }}
          <input type="number" name="price" id="price" required placeholder="Price" v-model="payloadTemplate.price" class="form-control">
+            {{ product.price }}
         </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" v-on:click="addProduct()">Save changes</button>
+        <button  class="btn btn-primary" type="submit">Save changes</button>
       </div>
     </div>
   </div>
@@ -30,7 +35,9 @@
 
 <script>
 import { useStore } from 'vuex';
-// import {computed} from '@vue/runtime-core'
+import {computed} from '@vue/runtime-core';
+
+
 export default{
     name: 'AddProduct',
     setup(){
@@ -53,6 +60,12 @@ export default{
         payloadTemplate
     }
         
+    }
+
+    methods:{
+        Addproduct(){
+            return this.$store.dispatch("AddProduct",this.product)
+        },
     }
 }
 </script>

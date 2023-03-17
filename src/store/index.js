@@ -41,8 +41,8 @@ export default createStore({
   },
   actions: {
     // Users
-    async fetchUsers(context) {
-      let res = await axios.get(`${renderURL}users`);
+    async fetchUsers(context, payload) {
+      let res = await axios.get(`${renderURL}users`, payload);
       let {results,err} = await res.data;
       if(results) {
         context.commit('DisplayUsers',results);
@@ -51,8 +51,8 @@ export default createStore({
       }
     },
     
-    async updateUser(context, ){
-      let res = await axios.put(`${renderURL}users/:id`, );
+    async updateUser(context , payload){
+      let res = await axios.put(`${renderURL}users/:id`, payload);
       let {msg, err} = await res.data;
       if(msg) {
         context.commit('fetchUsers')
@@ -62,7 +62,7 @@ export default createStore({
     },
     async deleteUser(context, id) {
       let res = await axios.put(`${renderURL}users/:id`, );
-      console.log(`Delete: ${id}`);
+      console.log(`Delete User: ${id}`);
       let {msg, err} = await res.data;
       if(msg) {
         context.commit('fetchUsers');
@@ -71,8 +71,8 @@ export default createStore({
       }
     },
     
-    async login(context){
-      const res = await axios.patch(`${renderURL}login`, );
+    async login(context, payload){
+      const res = await axios.patch(`${renderURL}login`, payload);
       const {result, err} = await res.data;
       if(result) {
         context.commit('setUser', result);
@@ -80,13 +80,13 @@ export default createStore({
         context.commit('setMessage', err);
       }
     },
-    async register(context) {
-      let res = await axios.post(`${renderURL}register`, );
+    async register(context, payload) {
+      let res = await axios.post(`${renderURL}register`, payload);
       let {msg,err} = await res.data;
       if(msg) {
-        context.commit('setMessage',msg);
+        context.commit('User was registered',msg);
       }else {
-        context.commit('setMessage', err);
+        context.commit('Could not register User', err);
       }
     },
 
