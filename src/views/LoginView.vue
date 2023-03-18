@@ -1,56 +1,51 @@
 <template >
-    <div class="container-fluid">
-         <div class="form-body">
-         <div class="row">
-             <div class="form-holder">
-                 <div class="form-content">
-                     <div class="form-items" style="background-color: rgb(0,0,0,0.3);">
-                       
-                       
-                       <h1>Login</h1>
-                         <form class="requires-validation" novalidate>
- 
-                            
-                             <div class="col-md-12">
-                                 <input class="form-control" type="email" name="email" placeholder="E-mail Address" required>
-                                  <div class="valid-feedback">Email field is valid!</div>
-                                  <div class="invalid-feedback">Email field cannot be blank!</div>
-                             </div>
- 
-                            <div class="col-md-12">
-                               <input class="form-control" type="password" name="password" placeholder="Password" required>
-                                <div class="valid-feedback">Password field is valid!</div>
-                                <div class="invalid-feedback">Password field cannot be blank!</div>
-                            </div>
- 
-                             <div class="form-button mt-3">
-                                 <button id="submit" type="submit" class="btn btn-primary">Login</button>
-                             </div>
-                             <br>
-                             <div class="account">
-                        <p>Create a new account 
-                           <router-link to="/register"
-                           style="text-decoration:dotted;">here</router-link>.</p>
-                       </div>
-                       <div style="color:white;"> 
-                         <router-link to="/forgot" style="text-shadow: 0.5px 0 0.5px white;
-                         color: white;">Forgot</router-link> password.
-                       </div>
-                       
-                         </form>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
-     </div>
-     
+    <form class="requires-validation" @submit.prevent="login">
+                                <div class="col-md-12">
+                                    <input class="form-control" type="email" v-model="emailAdd" name="email" placeholder="E-mail Address"
+                                        required>
+                                    <div class="valid-feedback">Email field is valid!</div>
+                                    <div class="invalid-feedback">Email field cannot be blank!</div>
+                                </div>
+                                <div class="col-md-12">
+                                    <input class="form-control" type="password" v-model="userPass" name="password" placeholder="Password"
+                                        required>
+                                    <div class="valid-feedback">Password field is valid!</div>
+                                    <div class="invalid-feedback">Password field cannot be blank!</div>
+                                </div>
+                                <div class="form-button mt-3">
+                                    <button id="submit" type="submit" class="btn btn-primary">Login</button>
+                                </div>
+                                <br>
+                                <div class="account">
+                                    <p>Create a new account
+                                        <router-link to="/register" style="text-decoration:dotted;">here</router-link>.
+                                    </p>
+                                </div>
+                                <!-- <div style="color:white;">
+                                    <router-link to="/forgot" style="text-shadow: 0.5px 0 0.5px white;
+                             color: white;">Forgot</router-link> password.
+                                </div> -->
+                            </form>
      
  </template>
  <script>
  export default {
-     
- }
+    data() {
+        return {
+            emailAdd : '',
+            userPass : '',
+        }
+    },
+    methods: {
+        login() {
+            const payload = {
+                emailAdd :this.emailAdd,
+                userPass :this.userPass
+            }
+            this.$store.dispatch('login', payload)
+        }
+    }
+}
  </script>
  <style scoped>
  

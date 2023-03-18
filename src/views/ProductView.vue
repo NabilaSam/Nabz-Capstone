@@ -16,10 +16,9 @@
 </template>
 
 <script>
-
 import {useStore} from 'vuex';
 import {computed} from '@vue/runtime-core';
-import {SpinnerC} from '../components/SpinnerC.vue'
+import SpinnerC from '../components/SpinnerC.vue'
 
 export default {
     components: {
@@ -41,7 +40,8 @@ export default {
 
 <style scoped>
 .allproducts{
-  margin: 
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 .round{

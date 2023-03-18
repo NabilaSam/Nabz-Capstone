@@ -95,7 +95,7 @@ import AddProduct from '../components/AddProduct.vue';
 import UpdateUser from '../components/UpdateUser.vue';
 import {useStore} from 'vuex';
 import {computed} from '@vue/runtime-core';
-import {SpinnerC} from '../components/SpinnerC.vue'
+import SpinnerC from '../components/SpinnerC.vue'
 
 export default {
   setup(){
@@ -110,6 +110,7 @@ export default {
     const deleteProduct = async (id) => {
       store.dispatch('deletedProduct', id);
       store.dispatch('fetchProducts');
+      store.dispatch('fetchUsers');
       location.reload();
     }
 

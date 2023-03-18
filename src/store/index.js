@@ -71,15 +71,33 @@ export default createStore({
       }
     },
     
-    async login(context){
-      const res = await axios.patch(`${renderURL}login`, );
-      const {result, err} = await res.data;
-      if(result) {
-        context.commit('setUser', result);
-      }else {
-        context.commit('setMessage', err);
-      }
+    async login(context, payload){
+      console.log(payload);
+      axios.post(`${renderURL}login`, payload)
+        .then(response => {
+          // Handle success.
+          // gets the whole response
+          console.log(response);
+          // gets the msg
+          console.log(response.data.msg);
+          // gets the token
+          console.log(response.data.jwToken);
+          // gets the user data
+          console.log(response.data.result[0]);
+          })
+          .catch(error => {
+          // Handle error.
+          console.log('An error occurred:', error.response.data.err);
+          });
+      // const res = await axios.post(`${renderURL}login`, payload);
+      // const {result, err} = await res.data;
+      // if(result) {
+      //   context.commit('setUser', result);
+      // }else {
+      //   context.commit('setMessage', err);
+      // }
     },
+    
     async register(context) {
       let res = await axios.post(`${renderURL}register`, );
       let {msg,err} = await res.data;
