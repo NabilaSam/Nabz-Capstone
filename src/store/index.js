@@ -1,6 +1,7 @@
 import { createStore } from 'vuex'
 import axios from 'axios';
 const renderURL = "https://nintai-no-ei.onrender.com/";
+// import router from "../router";
 
 export default createStore({
   state: {
@@ -45,7 +46,7 @@ export default createStore({
       let res = await axios.get(`${renderURL}users`, payload);
       let {results,err} = await res.data;
       if(results) {
-        context.commit('DisplayUsers',results);
+        context.commit('setUsers',results);
       }else {
         context.commit('Could not retrieve user',err);
       }
@@ -102,19 +103,22 @@ export default createStore({
       // const res = await axios.post(`${renderURL}login`, payload);
       // const {result, err} = await res.data;
       // if(result) {
+          // router.push("/");
       //   context.commit('setUser', result);
       // }else {
       //   context.commit('setMessage', err);
       // }
     },
     
-    async register(context) {
-      let res = await axios.post(`${renderURL}register`, );
+    async register(context, payload) {
+      console.log(payload);
+      let res = await axios.post(`${renderURL}register`, payload);
+      console.log(res);
       let {msg,err} = await res.data;
       if(msg) {
-        context.commit('User was registered',msg);
+        context.commit('setMessage',msg);
       }else {
-        context.commit('Could not register User', err);
+        context.commit('setMessage', err);
       }
     },
 

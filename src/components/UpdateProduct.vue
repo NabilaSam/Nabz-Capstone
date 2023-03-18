@@ -23,7 +23,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" v-on:click="editProduct(productId)">Save changes</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click.prevent="updateProd(product.prodId)">Save changes</button>
           </div>
         </div>
         
@@ -33,8 +33,9 @@
     
     <script>
     import { useStore } from 'vuex';
-    import {computed} from '@vue/runtime-core'
-    import updateProd from '../components/UpdateProduct.vue'
+    import {computed} from '@vue/runtime-core';
+    import updateProd from '../components/UpdateProduct.vue';
+
     export default{
         inheritAttrs:false,
         props: ['product', 'prodId'],
@@ -73,7 +74,8 @@
             payload,
             editProduct,
             user,
-            payloadTemplate
+            payloadTemplate,
+            updateProd
         }
         },
     }

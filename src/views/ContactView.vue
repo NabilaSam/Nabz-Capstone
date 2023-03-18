@@ -121,7 +121,6 @@ textarea {
 li
 {
    display: inline-block;
-   float:left;
 }
 
 ul {

@@ -28,12 +28,12 @@
           </thead>
           <tbody >
             <tr v-for="person in users" :key="person">
-              <td>{{ person.userID }} </td>
-              <td><img :src="person.imgURL" alt="prod.img" style="max-height: 10px;"></td>
-              <td>{{ person.firstName }}</td>
-              <td>{{ person.lastName }}</td>
-              <td>{{ person.cellphoneNumber }}</td>
-              <td>{{ person.emailAdd }}</td>
+              <td>{{ person?.userID }} </td>
+              <td><img :src="person?.imgURL" alt="prod.img" style="max-height: 10px;"></td>
+              <td>{{ person?.firstName }}</td>
+              <td>{{ person?.lastName }}</td>
+              <td>{{ person?.cellphoneNumber }}</td>
+              <td>{{ person?.emailAdd }}</td>
               <td> 
                 <button><UpdateUser/></button>
               </td>
@@ -99,6 +99,7 @@ import SpinnerC from '../components/SpinnerC.vue'
 
 export default {
   setup(){
+    
     const store = useStore();
     store.dispatch('fetchProducts');
     store.dispatch('fetchUsers');
