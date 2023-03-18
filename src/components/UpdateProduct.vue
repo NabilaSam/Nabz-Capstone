@@ -34,6 +34,7 @@
     <script>
     import { useStore } from 'vuex';
     import {computed} from '@vue/runtime-core'
+    import updateProd from '../components/UpdateProduct.vue'
     export default{
         inheritAttrs:false,
         props: ['product', 'prodId'],

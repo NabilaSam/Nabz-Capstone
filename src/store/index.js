@@ -41,8 +41,8 @@ export default createStore({
   },
   actions: {
     // Users
-    async fetchUsers(context) {
-      let res = await axios.get(`${renderURL}users`);
+    async fetchUsers(context, payload) {
+      let res = await axios.get(`${renderURL}users`, payload);
       let {results,err} = await res.data;
       if(results) {
         context.commit('DisplayUsers',results);
@@ -50,9 +50,19 @@ export default createStore({
         context.commit('Could not retrieve user',err);
       }
     },
+
+    async addUser(context, payload) {
+      let res = axios.post(`${renderURL}users`, payload);
+      let {result,err} = await res.data;
+      if(result) {
+        context.commit('set User',result)
+      }else {
+        context.commit('unable to set User', err)
+      }
+    },
     
-    async updateUser(context, ){
-      let res = await axios.put(`${renderURL}users/:id`, );
+    async updateUser(context , payload){
+      let res = await axios.put(`${renderURL}users/:id`, payload);
       let {msg, err} = await res.data;
       if(msg) {
         context.commit('fetchUsers')
@@ -62,7 +72,7 @@ export default createStore({
     },
     async deleteUser(context, id) {
       let res = await axios.put(`${renderURL}users/:id`, );
-      console.log(`Delete: ${id}`);
+      console.log(`Delete User: ${id}`);
       let {msg, err} = await res.data;
       if(msg) {
         context.commit('fetchUsers');
@@ -102,9 +112,9 @@ export default createStore({
       let res = await axios.post(`${renderURL}register`, );
       let {msg,err} = await res.data;
       if(msg) {
-        context.commit('setMessage',msg);
+        context.commit('User was registered',msg);
       }else {
-        context.commit('setMessage', err);
+        context.commit('Could not register User', err);
       }
     },
 
