@@ -136,6 +136,13 @@ export default createStore({
       }
     },
 
+    // router.get("${renderURL}product/:id")
+
+    // const category =[
+    //   "Hinoki",
+    // ];
+
+    // Single product
     async fetchProduct(context) {
       const res =
       await axios.get(`${renderURL}product/:id`);
@@ -147,6 +154,7 @@ export default createStore({
           context.commit('setSpinner', true)
       }
     },
+
       async addProduct(context) {
       let res = axios.post(`${renderURL}product/:id`, );
       let {result,err} = await res.data;

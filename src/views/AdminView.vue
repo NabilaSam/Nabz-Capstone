@@ -29,7 +29,7 @@
           <tbody >
             <tr v-for="person in users" :key="person">
               <td>{{ person?.userID }} </td>
-              <td><img :src="person?.imgURL" alt="prod.img" style="max-height: 10px;"></td>
+              <td><img :src="person?.imgURL" alt="user.img" style="max-height: 60px;"></td>
               <td>{{ person?.firstName }}</td>
               <td>{{ person?.lastName }}</td>
               <td>{{ person?.cellphoneNumber }}</td>

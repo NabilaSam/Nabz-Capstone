@@ -3,9 +3,9 @@
     <NavBar/>
     <main class="min-vh-100">
       <div class="doors">
-        <img src="https://i.postimg.cc/mDWhdFFJ/istockphoto-1301187149-612x612.jpg" alt="leftdoor" class="leftdoor">
+        <img src="https://i.postimg.cc/s1dFwqH7/Japanese-silhouette-left.jpg" alt="leftdoor" class="leftdoor">
 
-        <img src="https://i.postimg.cc/mDWhdFFJ/istockphoto-1301187149-612x612.jpg" alt="rightdoor" class="rightdoor">
+        <img src="https://i.postimg.cc/7P7qTnW0/Japanese-silhouette-right.jpg" alt="rightdoor" class="rightdoor">
       </div>
       <div class="dacontent">
         <router-view/>
@@ -40,7 +40,7 @@ export default{
   text-shadow: 0.2px 0.2px rgb(255, 0, 0);
   text-align: center;
   color: #660708;
-  background-color: beige;
+  background-color: rgb(238, 240, 238);
   min-height: 100vh;
   color: #000000;
   margin: 0;
@@ -54,7 +54,6 @@ export default{
   position: fixed;
   display: flex;
   width: 100%;
-  
 }
 
 /* left door animation */
@@ -94,23 +93,11 @@ export default{
   }
 }
 
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #0a9019;
-}
-
 @media screen and (max-width: 1100px) 
 {
 .doors { 
   display: none;
+  z-index: 2;
 } 
  
 }

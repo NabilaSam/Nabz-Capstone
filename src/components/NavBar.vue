@@ -1,6 +1,6 @@
 <template>
     <header>
-   <nav class="navbar navbar-expand-lg bg-body-tertiary">
+   <nav class="navbar navbar-expand-lg bg-black navbar-dark">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -34,7 +34,7 @@
               <img src="https://i.postimg.cc/T3d6R0wV/png-clipart-frost-pro-for-os-x-icon-set-now-free-contacts-male-profile.png" class="rounded-circle"
                 height="22" alt="Avatar" loading="lazy" />
             </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+            <ul class="dropdown-menu dropdown-menu-end da-bg" aria-labelledby="navbarDropdownMenuLink">
               <li>
                 <router-link to="/register" class="dropdown-item">Register</router-link>
               </li>
@@ -58,6 +58,29 @@
   </script>
   <style scoped>
   
+.nav {
+  background-color: black !important;
+  position: fixed;
+}
+
+nav a {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+nav a:hover{
+  color:  #a81848;
+  text-shadow: #ffffff !important;
+}
+
+nav a.router-link-exact-active {
+  color: #a81848;
+}
+
+.da-bg{
+  background-color: black !important;
+  border: 2px solid #ffffff93;
+}
 
   @media (min-width: 991.98px) {
   main {

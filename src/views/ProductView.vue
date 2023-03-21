@@ -1,6 +1,10 @@
 <template>
     <SpinnerC v-if="isloading"/>
+    
   <div v-else class="allproducts">
+
+    <!-- search bar -->
+    <div class="search-bar drawer top"> </div>
         <!-- Products -->
 
         <div class="card oval col-sm-3" v-for="item in products" :key="item" style="width: 18rem;">
@@ -9,13 +13,18 @@
     <h5 class="card-title">{{item.prodName}}</h5>
     <!-- <p class="card-text">{{ item.prodDescription }}</p> -->
     <h6>R{{ item.price }}</h6>
-    <a href="#" class="btn btn-primary">View Product</a>
-  </div>
-</div>
+    
+    <router-link :to="{name: 'singleprod', params: {id: item.id}}" > 
+      <a href="#" class="btn btn-round"><i class="fa fa-pagelines"></i></a>
+    </router-link>
+    <a href="#" class="btn btn-round"><i class="fa fa-shopping-cart"></i></a>
+        </div>
+      </div>
     </div>
 </template>
 
 <script>
+import axios from 'axios';
 import {useStore} from 'vuex';
 import {computed} from '@vue/runtime-core';
 import SpinnerC from '../components/SpinnerC.vue'
@@ -34,14 +43,30 @@ export default {
         products,
         spinner
       };
-    }
+    },
+
+    methods:{
+    async fetchProducts(){
+        const res = await axios.get(
+            `https://nintai-no-ei.onrender.com/`
+        );
+        this.items = res.data.results;
+        console.log(res);
+    },
+},
 }
 </script>
 
 <style scoped>
+
+.btn-round{
+  background-color: #a81848;
+  border-radius: 50%;
+}
 .allproducts{
   margin-left: 20%;
   margin-right: 20%;
+  z-index: 1;
 }
 
 .round{

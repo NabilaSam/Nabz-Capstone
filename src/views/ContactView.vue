@@ -64,7 +64,7 @@ body {
 }
 
 div.form {
-  background-color: #ffffff7e;
+  background-color: #afaaac;
   border-radius: 15px;
 }
 .contact-wrapper {

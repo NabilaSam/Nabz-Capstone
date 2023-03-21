@@ -51,9 +51,10 @@ const routes = [
     component: ContactView
   },
   {
-    path: '/singleprod',
+    path: '/product/:id',
     name: 'singleprod',
-    component: SingleProductView
+    component: SingleProductView,
+    props: true
   }
 ]
 

@@ -1,6 +1,6 @@
 <template >
     <div class="des footer bottom">
-        @copyright 2023 Nabila
+        © 2023 Nabila, All Rights Reserved
         </div>
 </template>
 <script>
@@ -10,7 +10,7 @@ export default {
 </script>
 <style scoped>
     .footer{
-    background-color: rgb(225, 126, 65);
+    background-color: rgb(0, 0, 0);
     color: aliceblue;
     }
 
