@@ -52,7 +52,7 @@ const routes = [
   },
   {
     path: '/product/:id',
-    name: 'singleprod',
+    name: 'product',
     component: SingleProductView,
     props: true
   }

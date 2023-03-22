@@ -14,7 +14,7 @@
     <!-- <p class="card-text">{{ item.prodDescription }}</p> -->
     <h6>R{{ item.price }}</h6>
     
-    <router-link :to="{name: 'singleprod', params: {id: item.id}}" > 
+    <router-link :to="{name: 'product', params: {id: item.prodId}}" >
       <a href="#" class="btn btn-round"><i class="fa fa-pagelines"></i></a>
     </router-link>
     <a href="#" class="btn btn-round"><i class="fa fa-shopping-cart"></i></a>
@@ -66,6 +66,7 @@ export default {
 .allproducts{
   margin-left: 20%;
   margin-right: 20%;
+  margin-top: 50px;
   z-index: 1;
 }
 
@@ -75,5 +76,6 @@ export default {
 
 .oval{
   border-radius: 40%;
+  margin: 20px;
 }
 </style>

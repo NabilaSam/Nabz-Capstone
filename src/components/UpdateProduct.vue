@@ -42,7 +42,7 @@
         setup(){
         const store = useStore();
         let user = computed(() => store.state.user);
-        let payloadTemplate = {
+        let payloadnew = {
                 prodName: '',
                 prodDescription: '',
                 price: '',
@@ -54,12 +54,11 @@
         let payload = async (prodId) => {
             let payload = await {
                 prodId: await prodId,
-                prodName: payloadTemplate.prodName,
-                prodDescription: payloadTemplate.prodDescription,
-                price: payloadTemplate.price,
-                prodQuantity: payloadTemplate.prodQuantity,
-                imgURL: payloadTemplate.imgURL,
-                userID: '2'
+                imgURL: payloadnew.imgURL,
+                prodName: payloadnew.prodName,
+                prodDescription: payloadnew.prodDescription,
+                category: payloadnew.category,
+                price: payloadnew.price,
             }
             return payload
         }
@@ -74,7 +73,6 @@
             payload,
             editProduct,
             user,
-            payloadTemplate,
             updateProd
         }
         },

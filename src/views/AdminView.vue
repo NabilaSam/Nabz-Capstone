@@ -1,6 +1,6 @@
-<template>
+<template >
   <SpinnerC v-if="isloading"/>
-  <div v-else>
+  <div v-else class="admin">
     
     <!-- The User Table -->
     <div  class="table-responsive">
@@ -77,9 +77,9 @@
               <td>{{ product.category }}</td>
               <td>R{{ product.price }}</td>
               <td> 
-                <i><UpdateProduct :product="product" :productId="product.id"/></i>
+                <i><UpdateProduct :product="product" :productId="product.prodId"/></i>
                 
-                <i class="fa fa-trash" v-on:click="deleteProduct(product.id)"><DeleteProduct/> </i>
+                <i class="fa fa-trash" v-on:click="deleteProduct(product.prodId)"><DeleteProduct/> </i>
               </td>
             </tr>
           </tbody>
@@ -143,7 +143,9 @@ export default {
 </script>
 
 <style scoped>
-  
+  .admin{
+    z-index: 2;
+  }
 .table{
   max-width: 1100px;
   margin: auto;

@@ -1,6 +1,6 @@
 <template>
     <header>
-   <nav class="navbar navbar-expand-lg bg-black navbar-dark">
+   <nav class="navbar navbar-expand-lg bg-black navbar-dark fixed-top">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -28,6 +28,9 @@
       </ul>
     </div>
     <ul class="navbar-nav ms-auto d-flex flex-row">
+        <li >
+          <router-link class="navicon" to="/checkout"><i class="fa fa-shopping-cart"></i>Cart</router-link>
+        </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
               id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -77,6 +80,13 @@ nav a.router-link-exact-active {
   color: #a81848;
 }
 
+.navicon
+{
+  margin:auto;
+  padding-top: 40px;
+  text-decoration: none;
+
+}
 .da-bg{
   background-color: black !important;
   border: 2px solid #ffffff93;

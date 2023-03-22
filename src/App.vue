@@ -2,12 +2,11 @@
   <div class="content-container">
     <NavBar/>
     <main class="min-vh-100">
-      <div class="doors">
-        <img src="https://i.postimg.cc/s1dFwqH7/Japanese-silhouette-left.jpg" alt="leftdoor" class="leftdoor">
 
+        <img src="https://i.postimg.cc/s1dFwqH7/Japanese-silhouette-left.jpg" alt="leftdoor" class="leftdoor">
         <img src="https://i.postimg.cc/7P7qTnW0/Japanese-silhouette-right.jpg" alt="rightdoor" class="rightdoor">
-      </div>
-      <div class="dacontent">
+      
+        <div class="dacontent">
         <router-view/>
       </div>
       
@@ -49,28 +48,25 @@ export default{
 }
 
 /* inner content */
-.doors{
-  overflow-x: hidden;
-  position: fixed;
-  display: flex;
-  width: 100%;
-}
+
 
 /* left door animation */
 .leftdoor{
+  position: fixed;
   justify-content: left;
   height: 100vh;
-  width: 100%;
-  float: left;
+  width: 50%;
+  left: 0;
   animation: slideLeft 2s ease 0s 1 forwards;
 }
 
 /* right door animation*/
 .rightdoor{
+  position: fixed;
   justify-content: right;
   height: 100vh;
-  width: 100%;
-  float: right;
+  width: 50%;
+  right: 0;
   animation: slideRight 2s ease 0s 1 forwards;
 }
 
@@ -97,7 +93,6 @@ export default{
 {
 .doors { 
   display: none;
-  z-index: 2;
 } 
  
 }

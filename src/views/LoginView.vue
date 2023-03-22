@@ -39,7 +39,7 @@
                 userPass :this.userPass
             }
             this.$store.dispatch('login', payload);
-            // this.$router.push("/");
+            this.$router.push("/");
         }
     }
 }

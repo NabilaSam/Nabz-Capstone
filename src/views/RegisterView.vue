@@ -125,7 +125,7 @@ export default {
 }
 
 .form-content h3 {
-    color: #fff;
+    color: #000000;
     text-align: left;
     font-size: 28px;
     font-weight: 600;
@@ -134,7 +134,7 @@ export default {
 
 
 .form-content p {
-    color: #fff;
+    color: #000000;
     text-align: left;
     font-size: 17px;
     font-weight: 300;

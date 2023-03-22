@@ -1,6 +1,6 @@
 <template>
-    <div v-if="product" data-aos="zoom-in">
-        <h1 class="heading animate__animated animate__zoomInUp">Product</h1>
+    <div v-if="product" class="singleitem">
+        <h1>Product</h1>
         <div class="container-fluid">
           <div class="" id="cards"></div>
           <div class="row">
@@ -10,7 +10,7 @@
                 <h5 class="name">{{ product?.prodName }}</h5>
                 <p class="description">{{ product?.prodDescription }}</p>
                 <p class="price">R{{ product?.price }}</p>
-                  <a href="#" class="btn btn-round"><i class="fa fa-shopping-cart"></i></a>
+                  <!-- <a href="#" class="btn btn-round"><i class="fa fa-shopping-cart"></i></a> -->
               </div>
             </div>
           </div>
@@ -20,18 +20,24 @@
 
 <script>
 export default {
-  props: ['id'],
+  props: ['prodId'],
   computed: {
     product() {
       return this.$store.state.product
     }
   },
   mounted() {
-    this.$store.dispatch('fetchProduct', this.id)
+    this.$store.dispatch('fetchProduct', this.$route.params.id)
   },
 }
 </script>
 
 <style scoped>
-    
+.singleitem{
+  z-index: 1;
+}
+.btn-round{
+  background-color: #a81848;
+  border-radius: 50%;
+}
 </style>
