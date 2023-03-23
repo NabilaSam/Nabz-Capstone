@@ -13,7 +13,7 @@ export default createStore({
     addProduct: null,
     addUser: null,
     message: null,
-    editproduct: null
+    updateProduct: null
   },
   getters: {
     showSpinner(state) {
@@ -63,7 +63,7 @@ export default createStore({
     },
 
     async updateUser(context, payload) {
-      let res = await axios.put(`${renderURL}users/:id`, payload);
+      let res = await axios.put(`${renderURL}users/${payload.prodId}`, payload);
       let { msg, err } = await res.data;
       if (msg) {
         context.commit('fetchUsers')
@@ -71,15 +71,19 @@ export default createStore({
         context.commit('setMessage', err);
       }
     },
+
     async deleteUser(context, id) {
-      let res = await axios.put(`${renderURL}users/:id`,);
+      console.log(id);
+      let res = await axios.delete(`${renderURL}user/${id}`);
       console.log(`Delete User: ${id}`);
-      let { msg, err } = await res.data;
+      let {msg} = await res.data.msg;
       if (msg) {
-        context.commit('fetchUsers');
-      } else {
-        context.commit('setMessage', err);
+        context.dispatch('fetchUsers');
+      } 
+      if (msg) {
+        context.commit('setMessage', msg);
       }
+      context.dispatch('fetchUsers');
     },
 
     async login(context, payload) {
@@ -100,14 +104,6 @@ export default createStore({
           // Handle error.
           console.log('An error occurred:', error.response.data.err);
         });
-      // const res = await axios.post(`${renderURL}login`, payload);
-      // const {result, err} = await res.data;
-      // if(result) {
-      // router.push("/");
-      //   context.commit('setUser', result);
-      // }else {
-      //   context.commit('setMessage', err);
-      // }
     },
 
     async register(context, payload) {
@@ -136,11 +132,6 @@ export default createStore({
       }
     },
 
-    // router.get("${renderURL}product/:id")
-
-    // const category =[
-    //   "Hinoki",
-    // ];
 
     // Single product
     async fetchProduct(context, id) {
@@ -155,26 +146,6 @@ export default createStore({
       }
     },
 
-    // async addProduct(context, payload) {
-    //   console.log(payload);
-    //   fetch(`${renderURL}product`, {
-    //     methods: 'POST',
-    //     mode: "cors",
-    //     headers: {
-    //       "Content-type": "application/json; charset=UTF-8",
-    //     },
-    //     body: JSON.stringify(payload)
-    //   })
-    //   .then((res)=> res.json())
-    //   .then((data)=> {
-    //     console.log(data.msg);
-    //     context.dispatch('fetchProducts')
-    //   }) 
-    //   .catch((err)=> {
-    //     console.log(err)
-    //   })
-    // },
-
     async addProduct(context, payload) {
       let res = await axios.post(`${renderURL}product`, payload);
       console.log(res.data);
@@ -186,14 +157,18 @@ export default createStore({
       }
     },
 
-    async deleteProduct(context) {
-      const res = await axios.delete(`${renderURL}product/:id`);
-      const { results, err } = await res.data;
-      if (results) {
-        context.commit('setProducts', results);
-      } else {
-        context.commit('setMessage', err);
+    async deleteProduct(context, id) {
+      console.log(id);
+      let res = await axios.delete(`${renderURL}product/${id}`);
+      console.log(`Delete product: ${id}`);
+      let {msg} = await res.data.msg;
+      if (msg) {
+        context.dispatch('fetchProducts');
+      } 
+      if (msg) {
+        context.commit('setMessage', msg);
       }
+      context.dispatch('fetchProducts');
     },
 
     async updateProduct(context) {

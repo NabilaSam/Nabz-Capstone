@@ -8,6 +8,8 @@ import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import ContactView from '../views/ContactView.vue'
 import SingleProductView from '../views/SingleProductView.vue'
+// import { useStore } from 'vuex'
+// const store = useStore();
 
 const routes = [
   {
@@ -28,7 +30,13 @@ const routes = [
   {
     path: '/products',
     name: 'products',
-    component: ProductView
+    component: ProductView,
+    
+    // beforeEnter() {
+    //   if(!store.state.user) {
+    //     router.push({name: 'login'});
+    //   }
+    // },
   },
   {
     path: '/checkout',
@@ -57,6 +65,7 @@ const routes = [
     props: true
   }
 ]
+
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

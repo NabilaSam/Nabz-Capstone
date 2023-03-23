@@ -7,19 +7,19 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item">
+        <li class="nav-item mx-3">
           <router-link to="/" style="text-decoration: none;">
             <i class="fa fa-home fa-fw me-3"></i>Home  </router-link>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-3">
           <router-link to="/admin" style="text-decoration: none;">
             <i class="fa fa-user fa-fw me-3"></i>Admin </router-link>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-3">
           <router-link to="/products" style="text-decoration: none;">
               <i class="fa fa-list fa-fw me-3"></i>Products</router-link>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-3">
           <router-link to="/contact" style="text-decoration: none;">
               <i class="fa fa-phone fa-fw me-3"></i>Contact Us</router-link>
         </li>

@@ -16,8 +16,8 @@
          <button id="submit" type="submit" class="btn btn-primary">Login</button>
      </div>
      <br>
-     <div class="account">
-         <p>Create a new account
+     <div class="account" >
+         <p style="color:black;">Create a new account
              <router-link to="/register" style="text-decoration:dotted;">here</router-link>.
          </p>
      </div>
@@ -45,6 +45,7 @@
 }
  </script>
  <style scoped>
+
      .form-holder {
       display: flex;
       flex-direction: column;
@@ -52,7 +53,9 @@
       align-items: center;
       text-align: center;
       min-height: 100vh;
-}
+      max-width: 500px;
+      margin: auto;
+     }
 
 .form-holder .form-content {
     position: relative;

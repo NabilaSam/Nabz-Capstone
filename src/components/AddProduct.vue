@@ -2,7 +2,7 @@
   <!-- Button trigger modal -->
   <button
     type="button"
-    class="btn btn-primary w-100"
+    class="btn-rounded w-100"
     data-bs-toggle="modal"
     data-bs-target="#addModal"
   >
@@ -109,7 +109,7 @@ export default {
       prodName: "",
       prodDescription: "",
       category: "",
-      price: "",
+      price: ""
     };
   },
   // computed: {
@@ -130,35 +130,10 @@ export default {
     },
   },
 };
-
-// export default{
-//     name: 'AddProduct',
-//     setup(){
-//       // let user = computed(()=> store.state.user);
-//         const store = useStore();
-//         let payloadTemplate = {
-//             prodName: '',
-//             prodDescription: '',
-//             category: '',
-//             price: '',
-//             imgURL: ''
-//         }
-
-//     const addProduct = async () => {
-//       store.dispatch('addProduct', payloadTemplate);
-//       store.dispatch('fetchProducts');
-//       location.reload()
-//     }
-//     return{
-//         addProduct,
-//         payloadTemplate
-//     }
-//     },
-
-//     methods:{
-//         Addproduct(){
-//             return this.$store.dispatch("AddProduct",this.product)
-//         },
-//     }
-// }
 </script>
+
+<style>
+.btn-rounded{
+  border-radius: 50%;
+  padding: 5px;
+}</style>

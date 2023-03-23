@@ -34,6 +34,8 @@ export default {
       SpinnerC
     },
 
+   
+
     setup(){
       const store= useStore();
       store.dispatch("fetchProducts");
