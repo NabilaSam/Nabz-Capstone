@@ -1,31 +1,49 @@
-<template >
-    <div>
+<template>
+  <div>
+    
+  </div>
+</template>
+
+<script>
+export default {
+  
+}
+</script>
+
+<style scoped>
+  
+</style>
+
+<!-- <template > -->
+    <!-- <div>
         <div class="container checkout">
   <table id="cart" class="table table-hover table-condensed">
     <thead>
       <tr>
         <th style="width:50%">Image</th>
-        <th style="width:10%">Price</th>
-        <th style="width:22%" class="text-center">Subtotal</th>
-        <th style="width:10%">Price</th>
+        <th style="width:10%" class="text-center">Product</th>
+        <th style="width:22%">Description</th>
+        <th style="width:8%">Price</th>
+        <th style="width:10%"></th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td data-th="Product">
           <div class="row">
-            <div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive" /></div>
-            <div class="col-sm-10">
-                <td><img :src="product.imgURL" alt="prod.img" style="max-height: 60px;"></td>
-              <img :src="{{cart.imgURL }}" alt="">
+            <div class="col-sm-2 hidden-xs"><img  :src="product.imgURL" alt="prod.img" style="max-height: 60px;"/></div>
+            <div class="col-sm-10"> -->
+                <!-- <td><img :src="product.imgURL" alt="prod.img" style="max-height: 60px;"></td> -->
+            <!-- </div>
           </div>
         </td>
-        <td data-th="Price">$5.11</td>
-        <td data-th="Subtotal" class="text-center">$5.11</td>
+        <td data-th="Name">{{product.prodName}}</td>
+        <td data-th="Subtotal" class="text-center">{{product.prodDescription}}</td>
         <td class="actions" data-th="">
           <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
           <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
         </td>
+        <td data-th="Price">{{product.price}}</td>
       </tr>
     </tbody>
     <tfoot>
@@ -41,12 +59,14 @@
     </tfoot>
   </table>
 </div>
-    </div>
-</template>
+    </div> -->
+<!-- </template> -->
 
-<script>
+<!-- <script>
 
-// The total option
+import {useStore} from 'vuex';
+
+The total option
 var cart = document.getElementById("cart"), sumTotal = 0;
 for(var i = 1; i < cart.rows.length; i++)
 {
@@ -54,16 +74,17 @@ for(var i = 1; i < cart.rows.length; i++)
 }
 console.log(sumTotal);
 
-// Displaying the sum total
+Displaying the sum total
 document.getElementById("cart").innerHTML = "Total price = "+ sumTotal
 console.log(sumTotal);
 
 export default {
     
 }
-</script>
-<style scoped>
-    .checkout{
+</script> -->
+
+<!-- <style scoped>
+    /* .checkout{
 margin-top: 20px;
-    }
-</style>
+    } */
+</style> -->

@@ -1,6 +1,6 @@
 <template>
   <div id="siteloader" style="display:none;">
-    <div class="loader round-flip">
+    <div class="loader round-flip spinner">
 </div>
 </div>
 </template>
@@ -26,7 +26,7 @@ export default {
     margin: auto;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    transition: all 5s ease;
 }
     .spinner{
       width: 40px;

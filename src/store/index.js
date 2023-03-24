@@ -170,10 +170,28 @@ export default createStore({
       }
       context.dispatch('fetchProducts');
     },
+    
+    // async updateProduct(context, id) {
+    //   console.log(id);
+    //   let res = await axios.put(`${renderURL}product/${id}`);
+    //   console.log(`updated product: ${id}`);
+    //   let {msg} = await res.data.msg;
+    //   if (msg) {
+    //     context.dispatch('fetchProducts');
+    //     console.log(data);
+    //   } 
+    //   if (msg) {
+    //     context.commit('setMessage', msg);
+    //   }
+    //   router.push({})
+    //   context.dispatch('fetchProducts');
+    // },
 
-    async updateProduct(context) {
+    async updateProduct(context,id) {
+      console.log(id)
       const res =
-        await axios.put(`${renderURL}product/:id`);
+        await axios.put(`${renderURL}product/${{id}}`);
+        console.log(`UpdateProduct: ${id}`);
       const { results, err } = await res.data;
       if (results) {
         context.commit('setUpdate', results);
@@ -181,6 +199,7 @@ export default createStore({
         context.commit('setMessage', err);
       }
     }
+
 
   },
   modules: {

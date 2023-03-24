@@ -1,13 +1,13 @@
 <template>
   <!-- Button trigger modal -->
-  <button
+  <!-- <button
     type="button"
     class="btn btn-primary w-100"
     data-bs-toggle="modal"
     :data-bs-target="`#addModal${product.prodId}`"
   >
     Edit Product
-  </button>
+  </button> -->
 
   <!-- Modal -->
   <div
@@ -30,11 +30,10 @@
             aria-label="Close"
           ></button>
         </div>
-
-        <div action="updateProduct" class="modal-body" @submit.prevent="updateProduct(product.prodId)">
-
-          <!-- Prevent will stop the page from reloading as you enter the data -->
-
+        <!-- Prevent will stop the page from reloading as you enter the data -->
+        <form action="updateProduct" 
+        class="modal-body" @submit.prevent="updateProduct(product.prodId)">
+        <div>
             <input
             type="text"
               name="imgURL"
@@ -83,8 +82,13 @@
               class="input"
               />
               
-              <button class="btn btn-primary" type="submit">Update Product</button>
+              <button class="btn btn-primary" 
+              type="submit"
+              @click="this.$store.dispatch('updateProduct', product)" >
+              Update Product</button>
             </div>
+      
+      </form>
             <div class="modal-footer">
               <button
               type="button"
@@ -105,6 +109,7 @@
 // import computed from '@vue/runtime-core';
 
 export default {
+  // props: ['product'],
   data() {
     return {
       prodId: null,
@@ -118,7 +123,7 @@ export default {
 
   methods: {
     updateProduct(id) {
-      const payload = {
+      const id = {
         prodId: id,
         imgURL: this.imgURL,
         prodName: this.prodName,
@@ -126,12 +131,18 @@ export default {
         category: this.category,
         price: this.price
       };
-      this.$store.dispatch("updateProduct", payload);
+      this.$store.dispatch("updateProduct", id);
     },
+    // updateProduct(){
+    // this.$store.dispatch("updateProduct", this.product);
+    // }
   },
 };
 </script>
 
+<style scoped>
+
+</style>
 
 
 
