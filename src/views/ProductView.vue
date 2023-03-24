@@ -6,20 +6,22 @@
     <!-- search bar -->
     <div class="search-bar drawer top"> </div>
         <!-- Products -->
-
-        <div class="card oval col-sm-6" v-for="item in products" :key="item" style="width: 18rem;">
-  <img class="card-img-top round" :src="item.imgURL" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">{{item.prodName}}</h5>
-    <!-- <p class="card-text">{{ item.prodDescription }}</p> -->
-    <h6>R{{ item.price }}</h6>
-    
-    <router-link :to="{name: 'product', params: {id: item.prodId}}" >
-      <a href="#" class="btn btn-round"><i class="fa fa-pagelines"></i></a>
-    </router-link>
-    <a href="#" class="btn btn-round"><i class="fa fa-shopping-cart"></i></a>
+        <div class="row row-cols-sm-3 ">
+          <div class="card oval" v-for="item in products" :key="item" style="width: 18rem;">
+    <img class="card-img-top round" :src="item.imgURL" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{item.prodName}}</h5>
+      <!-- <p class="card-text">{{ item.prodDescription }}</p> -->
+      <h6>R{{ item.price }}</h6>
+      
+      <router-link :to="{name: 'product', params: {id: item.prodId}}" >
+        <a href="#" class="btn btn-round"><i class="fa fa-pagelines"></i></a>
+      </router-link>
+      <a href="#" class="btn btn-round"><i class="fa fa-shopping-cart"></i></a>
+          </div>
         </div>
-      </div>
+
+        </div>
     </div>
 </template>
 
@@ -79,5 +81,6 @@ export default {
 .oval{
   border-radius: 40%;
   margin: 20px;
+  justify-content: center;
 }
 </style>

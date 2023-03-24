@@ -142,26 +142,30 @@
                         <h1 class="modal-title fs-5" id="ModalLabel">Update Product</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
-                      <div class="modal-body">
-                        <Label>Product Name</Label> <br>
-                       <input type="text" v-model="product.prodName">
-                      </div>
-                      <div class="modal-body">
-                        <Label>Product Description</Label> <br>
-                       <input type="text" v-model="product.prodDescription">
-                      </div>
-                      <div class="modal-body">
-                        <Label>Product Price</Label> <br>
-                       <input type="text" v-model="product.price">
-                      </div>
-                      <div class="modal-body">
-                        <Label>Product Image</Label> <br>
-                       <input type="text" v-model="product.imgURL">
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button @click="this.$store.dispatch('updateProduct', product)" class="btn btn-light" data-bs-dismiss="modal">Edit Product</button>
-                      </div>
+
+                      <form action="">
+                        <div class="modal-body">
+                          <Label>Product Name</Label> <br>
+                         <input type="text" v-model="product.prodName" required>
+                        </div>
+                        <div class="modal-body">
+                          <Label>Product Description</Label> <br>
+                         <input type="text" v-model="product.prodDescription" required>
+                        </div>
+                        <div class="modal-body">
+                          <Label>Product Price</Label> <br>
+                         <input type="text" v-model="product.price" required>
+                        </div>
+                        <div class="modal-body">
+                          <Label>Product Image</Label> <br>
+                         <input type="text" v-model="product.imgURL">
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button @click="this.$store.dispatch('updateProduct', product)" id="submit" class="btn btn-light" data-bs-dismiss="modal">Edit Product</button>
+                        </div>
+                        
+                      </form>
                     </div>
                   </div>
                 </div>
