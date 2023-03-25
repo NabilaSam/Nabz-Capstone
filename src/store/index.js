@@ -6,7 +6,7 @@ const renderURL = "https://nintai-no-ei.onrender.com/";
 export default createStore({
   state: {
     users: null,
-    user: JSON.parse(localStorage.getItem("user")) || null,
+    user:  null,
     products: null,
     product: null,
     showSpinner: true,
@@ -26,9 +26,8 @@ export default createStore({
     setUsers(state, values) {
       state.users = values
     },
-    setUser(state, user) {
-      state.user = user;
-      localStorage.setItem('user', JSON.stringify(user));
+    setUser(state, value) {
+      state.user = value;
     },
     setMessage(state, values) {
       state.message = values
@@ -65,10 +64,10 @@ export default createStore({
     },
 
     // Logged in user
-    async fetchUser({commit}){
-      const res = await axios.get(`${renderURL}user`)
-      commit('setUser',res.data)
-    },
+    // async fetchUser({commit}){
+    //   const res = await axios.get(`${renderURL}user`)
+    //   commit('setUser',res.data)
+    // },
 
     async addUser(context, payload) {
       let res = axios.post(`${renderURL}users`, payload);
@@ -124,7 +123,7 @@ export default createStore({
     //   }
     // },
 
-    async login(context, payload) {
+    async login(context, payload){
       console.log(payload);
       axios.post(`${renderURL}login`, payload)
         .then(response => {
@@ -137,14 +136,13 @@ export default createStore({
           console.log(response.data.jwToken);
           // gets the user data
           console.log(response.data.result[0]);
-          localStorage.setItem("admin", response.data.userID)
-          localStorage.setItem("cookie", response.data.jwToken)
-        })
-        .catch(error => {
+          // context.commit('setUser', payload);
+          })
+          .catch(error => {
           // Handle error.
-          console.log('An error occurred:', error.response.data.err);
-        });
-    },
+          console.log('An error occurred:', error.response);
+          });
+        },
 
     async register(context, payload) {
       console.log(payload);

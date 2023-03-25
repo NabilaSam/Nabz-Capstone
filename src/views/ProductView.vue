@@ -36,7 +36,16 @@ export default {
       SpinnerC
     },
 
-   
+    data(){
+        return {
+            isloading: true
+        }
+    },
+    created(){
+        setTimeout(()=> {
+            this.isloading = false;
+        },4000);
+    },
 
     setup(){
       const store= useStore();

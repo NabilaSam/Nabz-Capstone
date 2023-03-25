@@ -24,17 +24,25 @@
               <i class="fa fa-phone fa-fw me-3"></i>Contact Us</router-link>
         </li>
 
+        
         <li class="dropdown-menu"></li>
       </ul>
     </div>
+
+    <h4 class="d-flex text-align-center" 
+    style="color:aliceblue; 
+    padding-top: 10px;
+    text-align: center;">NINTAI NO EI</h4>
+
+<li style="float:right;">
+  <router-link class="navicon" to="/checkout"><i class="fa fa-shopping-cart"></i>Cart</router-link>
+</li>
+
     <ul class="navbar-nav ms-auto d-flex flex-row">
-        <li >
-          <router-link class="navicon" to="/checkout"><i class="fa fa-shopping-cart"></i>Cart</router-link>
-        </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
               id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <router-link to="/singleUser">
+              <router-link to="/user/:id">
                 <img src="https://i.postimg.cc/T3d6R0wV/png-clipart-frost-pro-for-os-x-icon-set-now-free-contacts-male-profile.png" class="rounded-circle"
                   height="22" alt="Avatar" loading="lazy" />
               </router-link>

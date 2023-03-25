@@ -49,22 +49,17 @@
     </div>
 </template>
 <script>
-import { ref, onMounted } from 'vue'
+
 import { useStore } from 'vuex';
 
-const el = ref()
-
-onMounted(() => {
-  el.value // <div>
-})
 
 export default {
   name:'userProfileView',
   setup() {
         const store = useStore()
-        onMounted(async () => {
+        async () => {
             await store.dispatch('fetchUser')
-        })
+        }
     },
 }
 </script>
