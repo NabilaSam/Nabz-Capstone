@@ -137,8 +137,8 @@ export default createStore({
           console.log(response.data.jwToken);
           // gets the user data
           console.log(response.data.result[0]);
-          // localStorage.setItem("admin", response.data.userID)
-          // localStorage.setItem("cookie", response.data.jwToken)
+          localStorage.setItem("admin", response.data.userID)
+          localStorage.setItem("cookie", response.data.jwToken)
         })
         .catch(error => {
           // Handle error.

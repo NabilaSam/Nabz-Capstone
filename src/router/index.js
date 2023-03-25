@@ -8,6 +8,7 @@ import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import ContactView from '../views/ContactView.vue'
 import SingleProductView from '../views/SingleProductView.vue'
+import UserProfileView from '../views/UserProfileView.vue'
 // import { useStore } from 'vuex'
 // const store = useStore();
 
@@ -62,6 +63,12 @@ const routes = [
     path: '/product/:id',
     name: 'product',
     component: SingleProductView,
+    props: true
+  },
+  {
+    path: '/user/:id',
+    name: 'user',
+    component: UserProfileView,
     props: true
   }
 ]

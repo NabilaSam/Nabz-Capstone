@@ -6,7 +6,7 @@
           <div class="row">
             <div class="col-3 card g-1 my-2 mx-2">
               <div class="card-body">
-                <img :src="product?.imgURL" alt="">
+                <img :src="product?.imgURL" alt="" style="max-width: fit-content;">
                 <h5 class="name">{{ product?.prodName }}</h5>
                 <p class="description">{{ product?.prodDescription }}</p>
                 <p class="price">R{{ product?.price }}</p>
@@ -35,6 +35,9 @@ export default {
 <style scoped>
 .singleitem{
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  max-width: 800px;
 }
 .btn-round{
   background-color: #a81848;

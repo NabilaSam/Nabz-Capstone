@@ -4,53 +4,31 @@
         <!-- Section: Social media -->
         <section class="
             d-flex
-            justify-content-center justify-content-lg-between
-            p-4
             border-bottom
           ">
-          <!-- Left -->
-          <!-- Right -->
-          <div>
-            <a href="" class="me-4 text-reset">
-              <p iconStyle="fab" icon="facebook-f"></p>
-            </a>
-            <a href="" class="me-4 text-reset">
-              <p iconStyle="fab" icon="twitter"></p>
-            </a>
-            <a href="" class="me-4 text-reset">
-              <p iconStyle="fab" icon="google"></p>
-            </a>
-            <a href="" class="me-4 text-reset">
-              <p iconStyle="fab" icon="instagram"></p>
-            </a>
-            <a href="" class="me-4 text-reset">
-              <p iconStyle="fab" icon="linkedin"></p>
-            </a>
-            <a href="" class="me-4 text-reset">
-              <p iconStyle="fab" icon="github"></p>
-            </a>
-          </div>
+         <br>
+         <br>
           <!-- Right -->
         </section>
-        <!-- Section: Social media -->
-        <!-- Section: Links  -->
         <section class="">
           <div class="container text-center text-md-start mt-5">
-            <!-- Grid row -->
+           
             <div class="mt-3">
-              <!-- Grid column -->
+              
               <div md="3" lg="4" xl="3" class="mx-auto mb-4">
-                <!-- Content -->
+              
                 <h6 class="text-uppercase fw-bold mb-4">
-                  <i class="fas fa-gem me-3"></i>Nintai no ie
+                  <i class="fa fa-book me-3"></i>Nintai no ie
                 </h6>
-                <p>
+                <p class="d-flex 
+            border-bottom">
                     Japanese term which means “Home Of Patience”.
     
     The inspiration for this name is derived from the art of growing bonsai, which is a method that requires lots of patience and precision. My name is Nabila Samsodien and I’ve  I have almost 7 years of experience with growing and caring for bonsais.
     
     There are certain bonsais that are really hard to find such as an Inoki that is older than 40 years.
-    
+    <br>
+    <br>
                 </p>
               </div>
               <!-- Grid column -->
