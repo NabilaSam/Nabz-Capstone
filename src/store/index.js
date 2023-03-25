@@ -14,7 +14,8 @@ export default createStore({
     addUser: null,
     message: null,
     updateProduct: null,
-    jwToken: null
+    jwToken: null,
+    cart: null
   },
   getters: {
     showSpinner(state) {
@@ -25,8 +26,9 @@ export default createStore({
     setUsers(state, values) {
       state.users = values
     },
-    setUser(state, value) {
-      state.user = value;
+    setUser(state, user) {
+      state.user = user;
+      localStorage.setItem('user', JSON.stringify(user));
     },
     setMessage(state, values) {
       state.message = values
@@ -45,6 +47,9 @@ export default createStore({
     },
     setToken(state, value) {
       state.jwToken = value
+    },
+    setCart(state,value){
+      state.cart = value;
     }
   },
   actions: {
@@ -57,6 +62,12 @@ export default createStore({
       } else {
         context.commit('Could not retrieve user', err);
       }
+    },
+
+    // Logged in user
+    async fetchUser({commit}){
+      const res = await axios.get(`${renderURL}user`)
+      commit('setUser',res.data)
     },
 
     async addUser(context, payload) {
@@ -78,6 +89,8 @@ export default createStore({
         context.commit('setMessage', err);
       }
     },
+
+    
 
     async deleteUser(context, id) {
       console.log(id);
@@ -211,6 +224,18 @@ export default createStore({
       }
     },
 
+    // async fetchCart(context, id){
+    //   const res = await axios.get(`${renderURL}cart/${id}`);
+    //   const{ err, results} =await res.data;
+    //   if (results) {
+    //     console.log(results)
+    //     context.commit('setCart',results)
+    //   } else {
+    //     console.log(err)
+    //     context.commit('setMessage',err);
+    //   }
+    // }
+
     // async updateProduct(context, id) {
     //   console.log(id);
     //   let res = await axios.put(`${renderURL}product/${id}`);
@@ -239,6 +264,8 @@ export default createStore({
     //     context.commit('setMessage', msg)
     //   }
     // }
+
+    
 
 
   },
