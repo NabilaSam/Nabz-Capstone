@@ -19,31 +19,24 @@
                 <h6>Information</h6>
                 <hr class="mt-0 mb-4">
                 <div class="row pt-1">
+
+                  <div class="col-6 mb-3">
+                    <h6>Name</h6>
+                    <p>{{$store.state.user.firstName }} {{ $store.state.user.lastName }}</p>
+                  </div>
+
                   <div class="col-6 mb-3">
                     <h6>Email</h6>
                     <p class="text-muted">{{$store.state.user.email}}</p>
                   </div>
                   <div class="col-6 mb-3">
                     <h6>Phone</h6>
-                    <p class="text-muted">123 456 789</p>
+                    <p class="text-muted"><i class="fa fa-phone"></i> 123 456 789</p>
                   </div>
                 </div>
-                <h6>Projects</h6>
+                
                 <hr class="mt-0 mb-4">
                 <div class="row pt-1">
-                  <div class="col-6 mb-3">
-                    <h6>Recent</h6>
-                    <p class="text-muted">Lorem ipsum</p>
-                  </div>
-                  <div class="col-6 mb-3">
-                    <h6>Most Viewed</h6>
-                    <p class="text-muted">Dolor sit amet</p>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-start">
-                  <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
-                  <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
-                  <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
                 </div>
               </div>
             </div>
@@ -56,8 +49,23 @@
     </div>
 </template>
 <script>
+import { ref, onMounted } from 'vue'
+import { useStore } from 'vuex';
+
+const el = ref()
+
+onMounted(() => {
+  el.value // <div>
+})
+
 export default {
-    
+  name:'userProfileView',
+  setup() {
+        const store = useStore()
+        onMounted(async () => {
+            await store.dispatch('fetchUser')
+        })
+    },
 }
 </script>
 <style scoped>

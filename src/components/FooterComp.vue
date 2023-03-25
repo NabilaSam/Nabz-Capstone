@@ -1,6 +1,6 @@
 <template >
     <div class="footer">
-        <MDBFooter :text="['center', 'lg-start', 'muted']">
+        <div :text="['center', 'lg-start', 'muted']">
         <!-- Section: Social media -->
         <section class="
             d-flex
@@ -12,22 +12,22 @@
           <!-- Right -->
           <div>
             <a href="" class="me-4 text-reset">
-              <MDBIcon iconStyle="fab" icon="facebook-f"></MDBIcon>
+              <p iconStyle="fab" icon="facebook-f"></p>
             </a>
             <a href="" class="me-4 text-reset">
-              <MDBIcon iconStyle="fab" icon="twitter"></MDBIcon>
+              <p iconStyle="fab" icon="twitter"></p>
             </a>
             <a href="" class="me-4 text-reset">
-              <MDBIcon iconStyle="fab" icon="google"></MDBIcon>
+              <p iconStyle="fab" icon="google"></p>
             </a>
             <a href="" class="me-4 text-reset">
-              <MDBIcon iconStyle="fab" icon="instagram"></MDBIcon>
+              <p iconStyle="fab" icon="instagram"></p>
             </a>
             <a href="" class="me-4 text-reset">
-              <MDBIcon iconStyle="fab" icon="linkedin"></MDBIcon>
+              <p iconStyle="fab" icon="linkedin"></p>
             </a>
             <a href="" class="me-4 text-reset">
-              <MDBIcon iconStyle="fab" icon="github"></MDBIcon>
+              <p iconStyle="fab" icon="github"></p>
             </a>
           </div>
           <!-- Right -->
@@ -35,11 +35,11 @@
         <!-- Section: Social media -->
         <!-- Section: Links  -->
         <section class="">
-          <MDBContainer class="text-center text-md-start mt-5">
+          <div class="container text-center text-md-start mt-5">
             <!-- Grid row -->
-            <MDBRow class="mt-3">
+            <div class="mt-3">
               <!-- Grid column -->
-              <MDBCol md="3" lg="4" xl="3" class="mx-auto mb-4">
+              <div md="3" lg="4" xl="3" class="mx-auto mb-4">
                 <!-- Content -->
                 <h6 class="text-uppercase fw-bold mb-4">
                   <i class="fas fa-gem me-3"></i>Nintai no ie
@@ -52,10 +52,10 @@
     There are certain bonsais that are really hard to find such as an Inoki that is older than 40 years.
     
                 </p>
-              </MDBCol>
+              </div>
               <!-- Grid column -->
               <!-- Grid column -->
-              <MDBCol md="4" lg="3" xl="3" class="mx-auto mb-md-0 mb-4">
+              <div md="4" lg="3" xl="3" class="mx-auto mb-md-0 mb-4">
                 <!-- Links -->
                 <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
                 
@@ -67,13 +67,13 @@
                   : nabzluciano@gmail.com
                 </p>
                 <p>
-                  <MDBIcon/> <i class="fa fa-phone fa-0.5x"> </i> +27 12 345 6789
+                 <i class="fa fa-phone fa-0.5x"> </i> +27 12 345 6789
                 </p>
-              </MDBCol>
+              </div>
               <!-- Grid column -->
-            </MDBRow>
+            </div>
             <!-- Grid row -->
-          </MDBContainer>
+          </div>
         </section>
         <!-- Section: Links  -->
         <!-- Copyright -->
@@ -82,7 +82,7 @@
           <p class="text-reset fw-bold">Nabila Samsodien</p>
         </div>
         <!-- Copyright -->
-      </MDBFooter>
+        </div>
 
     </div>
 
