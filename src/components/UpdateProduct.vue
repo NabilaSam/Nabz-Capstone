@@ -107,7 +107,6 @@
 <script>
 // import { useStore } from 'vuex';
 // import computed from '@vue/runtime-core';
-
 export default {
   // props: ['product'],
   data() {
@@ -120,7 +119,6 @@ export default {
       price: ""
     };
   },
-
   methods: {
     updateProduct(id) {
       const id = {
@@ -141,7 +139,6 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
 
 
@@ -149,7 +146,6 @@ export default {
 
 
 <!-- <template>                              
-
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" :data-bs-target="'#exampleModal'+this.product.id">
       Edit
     </button>
@@ -186,7 +182,6 @@ export default {
     import { useStore } from 'vuex';
     import {computed} from '@vue/runtime-core';
     import updateProd from '../components/UpdateProduct.vue';
-
     export default{
         inheritAttrs:false,
         props: ['product', 'prodId'],
@@ -228,7 +223,5 @@ export default {
         },
     }
     </script>
-
     <style scoped>
-
 </style> -->

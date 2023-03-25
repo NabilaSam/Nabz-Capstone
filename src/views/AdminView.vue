@@ -1,7 +1,11 @@
 <template >
-  <!-- <div v-if="person.userRole === 'User'"> -->
+  <!-- <div v-if="user.userRole === 'Admin'"> -->
     
-    <div>
+    <div class="adminpage">
+
+      <!-- Add User -->
+
+     
     
       <div>
         <!-- The User Table -->
@@ -13,6 +17,11 @@
                 <h3>Users</h3>
               </div>
               <div class="col.sm-4"> 
+                <router-link to="/register">
+                <button type="button" class="btn btn-dark"> 
+                  Add User
+                </button>
+              </router-link> 
                 </div>
               </div>
           </div>
@@ -127,7 +136,7 @@
             </tr>
           </thead>
           <tbody >
-            <tr v-for="product in products" :key="product">
+            <tr v-for="product in products" :key="product.prodId">
               <td>{{ product.prodId }} </td>
               <td><img :src="product.imgURL" alt="prod.img" style="max-height: 60px;"></td>
               <td>{{ product.prodName }}</td>
@@ -135,56 +144,54 @@
               <td>{{ product.category }}</td>
               <td>R{{ product.price }}</td>
               <td> 
-                <button type="button" 
+
+                <!-- update product component -->
+
+                <!-- <button type="button" 
                 data-bs-toggle="modal" 
-                :data-bs-target="`#Modal${product.prodId}`">
+                :data-bs-target="'#editModal' + product.prodId">
                 <i class="fa fa-pen">
                   <UpdateProduct/>
                 </i>
-              </button>
+              </button> -->
               
                 <!-- Edit button -->
                 
-                <!-- <button type="button" data-bs-toggle="modal" :data-bs-target="`#Modal${product.prodId}`">
+                <button type="button" data-bs-toggle="modal" :data-bs-target="`#Modal${product.prodId}`">
                   <i class="fa fa-pen"></i>
-                </button> -->
+                </button>
                 
                 <!-- Update Product Modal -->
-                
-                <!-- <div class="modal fade" :id="`Modal${product.prodId}`" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                <div class="modal fade" :id="`Modal${product.prodId}`" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h1 class="modal-title fs-5" id="ModalLabel">Update Product</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
-                      
-                      <form action="">
-                        <div class="modal-body">
-                          <Label>Product Name</Label> <br>
-                         <input type="text" v-model="product.prodName" required>
-                        </div>
-                        <div class="modal-body">
-                          <Label>Product Description</Label> <br>
-                         <input type="text" v-model="product.prodDescription" required>
-                        </div>
-                        <div class="modal-body">
-                          <Label>Product Price</Label> <br>
-                         <input type="text" v-model="product.price" required>
-                        </div>
-                        <div class="modal-body">
-                          <Label>Product Image</Label> <br>
-                          <input type="text" v-model="product.imgURL">
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button @click="this.$store.dispatch('updateProduct', this.product)" id="submit" class="btn btn-light" data-bs-dismiss="modal">Edit Product</button>
-                        </div>
-                        
-                      </form>
+                      <div class="modal-body">
+                        <Label>Product Name</Label> <br>
+                       <input type="text" v-model="product.prodName">
+                      </div>
+                      <div class="modal-body">
+                        <Label>Product Description</Label> <br>
+                       <input type="text" v-model="product.prodDescription">
+                      </div>
+                      <div class="modal-body">
+                        <Label>Product Price</Label> <br>
+                       <input type="text" v-model="product.price">
+                      </div>
+                      <div class="modal-body">
+                        <Label>Product Image</Label> <br>
+                       <input type="text" v-model="product.imgURL">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button @click="this.$store.dispatch('updateProduct', product)" class="btn btn-light" data-bs-dismiss="modal">Edit Product</button>
+                      </div>
                     </div>
                   </div>
-                </div> -->
+                </div>
 
 
                 <button
@@ -211,7 +218,7 @@
 </template>
 
 <script>
-import UpdateProduct from '../components/UpdateProduct.vue';
+// import UpdateProduct from '../components/UpdateProduct.vue';
 import AddProduct from '../components/AddProduct.vue';
 // import UpdateUser from '../components/UpdateUser.vue';
 import {useStore} from 'vuex';
@@ -234,16 +241,15 @@ export default {
     },
   
     methods: {
-      updateProduct(id) {
+      updateProduct() {
         const payload = {
-          prodId: id,
           imgURL: this.imgURL,
           prodName: this.prodName,
           prodDescription: this.prodDescription,
           category: this.category,
           price: this.price
         };
-        this.$store.dispatch("updateProduct", id);
+        this.$store.dispatch("updateProduct", payload);
       },
     },
   setup(){
@@ -260,7 +266,7 @@ export default {
       store.dispatch('deletedProduct', id);
       store.dispatch('fetchProducts');
       store.dispatch('fetchUsers');
-      location.reload();
+      
     }
 
     return{
@@ -273,7 +279,7 @@ export default {
   },
   components: {
     // SpinnerC,
-    UpdateProduct,
+    // UpdateProduct,
     AddProduct,
     // UpdateUser
   },
@@ -295,6 +301,9 @@ export default {
   margin: auto;
 }
 
+.adminpage{
+  margin-top: 30px;
+}
 .useradmin{
   justify-content: center;
   display: flex;

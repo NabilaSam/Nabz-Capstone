@@ -6,14 +6,15 @@ const renderURL = "https://nintai-no-ei.onrender.com/";
 export default createStore({
   state: {
     users: null,
-    user: null,
+    user: JSON.parse(localStorage.getItem("user")) || null,
     products: null,
     product: null,
     showSpinner: true,
     addProduct: null,
     addUser: null,
     message: null,
-    updateProduct: null
+    updateProduct: null,
+    jwToken: null
   },
   getters: {
     showSpinner(state) {
@@ -36,8 +37,14 @@ export default createStore({
     setProduct(state, value) {
       state.product = value;
     },
+    setUpdate(state, value) {
+      state.product = value;
+    },
     setSpinner(state, value) {
       state.showSpinner = value
+    },
+    setToken(state, value) {
+      state.jwToken = value
     }
   },
   actions: {
@@ -63,7 +70,7 @@ export default createStore({
     },
 
     async updateUser(context, payload) {
-      let res = await axios.put(`${renderURL}users/${payload.prodId}`, payload);
+      let res = await axios.put(`${renderURL}users/${payload.userID}`, payload);
       let { msg, err } = await res.data;
       if (msg) {
         context.commit('fetchUsers')
@@ -76,15 +83,33 @@ export default createStore({
       console.log(id);
       let res = await axios.delete(`${renderURL}user/${id}`);
       console.log(`Delete User: ${id}`);
-      let {msg} = await res.data.msg;
+      let { msg } = await res.data.msg;
       if (msg) {
         context.dispatch('fetchUsers');
-      } 
+      }
       if (msg) {
         context.commit('setMessage', msg);
       }
       context.dispatch('fetchUsers');
     },
+
+    // async login(context, payload) {
+    //   try {
+    //     const res =await axios.post(`${renderURL}login`, payload)
+    //     const { result, jwToken} = res.data
+    //     if (result) {
+    //       console.log('This may take a while');
+    //       context.commit('setUser', result);
+    //       context.commit('setToken', jwToken);
+    //       localStorage.setItem("admin", result.userRole)
+    //       localStorage.setItem("cookie", jwToken)
+    //     } else{
+    //       console.log('error');
+    //     }
+    //   } catch (error) {
+    //     console.log(error)
+    //   }
+    // },
 
     async login(context, payload) {
       console.log(payload);
@@ -99,6 +124,8 @@ export default createStore({
           console.log(response.data.jwToken);
           // gets the user data
           console.log(response.data.result[0]);
+          localStorage.setItem("admin", response.data.userID)
+          localStorage.setItem("cookie", response.data.jwToken)
         })
         .catch(error => {
           // Handle error.
@@ -149,10 +176,10 @@ export default createStore({
     async addProduct(context, payload) {
       let res = await axios.post(`${renderURL}product`, payload);
       console.log(res.data);
-      let {result,err} = await res.data;
-      if(result) {
-        context.commit('setMessage',result)
-      }else {
+      let { result, err } = await res.data;
+      if (result) {
+        context.commit('setMessage', result)
+      } else {
         context.commit('setMessage', err)
       }
     },
@@ -161,44 +188,57 @@ export default createStore({
       console.log(id);
       let res = await axios.delete(`${renderURL}product/${id}`);
       console.log(`Delete product: ${id}`);
-      let {msg} = await res.data.msg;
+      let { msg } = await res.data.msg;
       if (msg) {
         context.dispatch('fetchProducts');
-      } 
+      }
       if (msg) {
         context.commit('setMessage', msg);
       }
       context.dispatch('fetchProducts');
     },
-    
+
+
+
+    // Update Product
+    async updateProduct(context, payload) {
+      let res = await axios.put(`${renderURL}users/${payload.prodId}`, payload);
+      let { msg, err } = await res.data;
+      if (msg) {
+        context.commit('fetchProducts')
+      } else {
+        context.commit('setMessage', err);
+      }
+    },
+
     // async updateProduct(context, id) {
     //   console.log(id);
     //   let res = await axios.put(`${renderURL}product/${id}`);
     //   console.log(`updated product: ${id}`);
-    //   let {msg} = await res.data.msg;
+    //   let { msg } = await res.data.msg;
     //   if (msg) {
     //     context.dispatch('fetchProducts');
-    //     console.log(data);
-    //   } 
+    //   }
     //   if (msg) {
     //     context.commit('setMessage', msg);
     //   }
-    //   router.push({})
+    //   // router.push({})
     //   context.dispatch('fetchProducts');
     // },
 
-    async updateProduct(context,id) {
-      console.log(id)
-      const res =
-        await axios.put(`${renderURL}product/${{id}}`);
-        console.log(`UpdateProduct: ${id}`);
-      const { results, err } = await res.data;
-      if (results) {
-        context.commit('setUpdate', results);
-      } else {
-        context.commit('setMessage', err);
-      }
-    }
+    // async updateProduct(context,product) {
+    //   const res = await axios.put(`${renderURL}product/${product.id}`);
+    // // console.log(`UpdateProduct: ${id}`);
+    // console.log(res.data);
+    // const msg = await res.data.msg;
+    // const { results, err } = await res.data;
+    // if (msg) {
+    //   context.dispatch('setUpdate', msg);
+    // } 
+    //   if(msg) {
+    //     context.commit('setMessage', msg)
+    //   }
+    // }
 
 
   },

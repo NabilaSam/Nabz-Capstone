@@ -34,8 +34,10 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
               id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="https://i.postimg.cc/T3d6R0wV/png-clipart-frost-pro-for-os-x-icon-set-now-free-contacts-male-profile.png" class="rounded-circle"
-                height="22" alt="Avatar" loading="lazy" />
+              <router-link to="/">
+                <img src="https://i.postimg.cc/T3d6R0wV/png-clipart-frost-pro-for-os-x-icon-set-now-free-contacts-male-profile.png" class="rounded-circle"
+                  height="22" alt="Avatar" loading="lazy" />
+              </router-link>
             </a>
             <ul class="dropdown-menu dropdown-menu-end da-bg" aria-labelledby="navbarDropdownMenuLink">
               <li>

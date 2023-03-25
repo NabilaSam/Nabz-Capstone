@@ -6,7 +6,7 @@
     <!-- search bar -->
     <div class="search-bar drawer top"> </div>
         <!-- Products -->
-        <div class="row row-cols-sm-3 ">
+        <div class="row col-4-md ">
           <div class="card oval" v-for="item in products" :key="item" style="width: 18rem;">
     <img class="card-img-top round" :src="item.imgURL" alt="Card image cap">
     <div class="card-body">
