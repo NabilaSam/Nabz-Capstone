@@ -22,7 +22,7 @@ app.use(
 )
 
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://nintai-no-ie.web.app/')
+    res.header('Access-Control-Allow-Origin', 'https://nintai-no-ei.onrender.com')
     res.header("Access-Control-Allow-Credentials", "true")
     res.header("Access-Control-Allow-Methods", "*")
     res.header("Access-Control-Allow-Headers", "*")
