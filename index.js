@@ -8,6 +8,7 @@ const port = parseInt(process.env.PORT) || 4000;;
 const app = express();
 
 const { errorHandling } = require('./middleware/ErrorHandling');
+const bodyParser = require('body-parser');
 
 const cookieParser = require('cookie-parser');
 
