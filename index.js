@@ -20,8 +20,7 @@ app.use(
     bodyParser.json(),
     express.json(),
     
-    express.urlencoded({ extended: false }).
-    
+    express.urlencoded({ extended: false })   
 )
 
 app.use((req, res, next) => {
