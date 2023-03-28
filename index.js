@@ -4,6 +4,8 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const app = express();
 const port = parseInt(process.env.PORT) || 4000;
+const sql = require('./config');
+const jwt = require('jsonwebtoken');
 const { errorHandling } = require('./middleware/ErrorHandling');
 const route = require('./controller');
 
