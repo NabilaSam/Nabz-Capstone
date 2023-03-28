@@ -1,21 +1,21 @@
 const express = require('express');
-
 const cors = require('cors');
-const route = require('./controller');
-
-const port = parseInt(process.env.PORT) || 4000;;
-
-const app = express();
-
-const { errorHandling } = require('./middleware/ErrorHandling');
-const bodyParser = require('body-parser');
-
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const app = express();
+const port = parseInt(process.env.PORT) || 4000;
+const { errorHandling } = require('./middleware/ErrorHandling');
+const route = require('./routes/index');
+
+
+
+
+
 
 
 app.use(route);
 app.use(
-    cors(),
+    (cors()),
     cookieParser(),
     bodyParser.json(),
     express.json(),
@@ -24,7 +24,7 @@ app.use(
 )
 
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*')
+    res.header("Access-Control-Allow-Origin", "*")
     res.header("Access-Control-Allow-Credentials", "true")
     res.header("Access-Control-Allow-Methods", "*")
     res.header("Access-Control-Allow-Headers", "*")
