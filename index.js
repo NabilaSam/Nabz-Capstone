@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = parseInt(process.env.PORT) || 4000;
 const { errorHandling } = require('./middleware/ErrorHandling');
-const route = require('./routes/index');
+const route = require('./controller');
 
 
 
